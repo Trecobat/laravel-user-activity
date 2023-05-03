@@ -51,6 +51,3 @@ LockoutListener, LoginListener -> add public ?Request $request = null
 - Wait pull request [Link Here](https://github.com/haruncpi/laravel-user-activity/pull/46)
 
 
-```bash
-composer require mchtylmz/haruncpi-laravel-user-activity-laravel10
-```
