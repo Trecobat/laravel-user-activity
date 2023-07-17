@@ -55,6 +55,6 @@ class Log extends Model
      */
     public function user()
     {
-        return $this->belongsTo($this->userInstance);
+        return $this->hasOne($this->userInstance,"use_id", 'user_id');
     }
 }

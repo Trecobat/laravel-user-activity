@@ -11,6 +11,12 @@ return [
         'user' => "App\Models\User"
     ],
 
+    'user_params' => [
+        'user_id' => "use_id",
+        'user_email' => "use_email",
+        'user_name' => "use_name"
+    ],
+
     'log_events' => [
         'on_create'     => false,
         'on_edit'       => true,

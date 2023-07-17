@@ -13,6 +13,18 @@
 ## Documentation
 Checkout features & full documentation of [Laravel User Activity](https://laravelarticle.com/laravel-user-activity)
 
+## Configuration supplémentaire.
+- Ajout de paramètres pour la configuration des champs du User dans le fichier config/user-activity.pgp
+  - Il faut ajouter dans le model user les custom attribute pour 
+    - protected $appends = ['id',"name","email"];
+      - Exemple pour  l'attribut Email
+        - public function getEmailAttribute(){
+            return $this->use_email;
+            } 
+          
+        - public function setEmailAttribute($mail){
+            $this->use_email = $mail;
+            }
 ## Other Packages
 - [Laravel H](https://github.com/haruncpi/laravel-h) - A helper package for Laravel Framework.
 - [Laravel ID generator](https://github.com/haruncpi/laravel-id-generator) - A laravel package for custom database ID generation.
