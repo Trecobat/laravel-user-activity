@@ -415,19 +415,19 @@
         <span class="letter_a">A</span> <span>ctivity</span>
     </div>
     <div class="actions">
-        <a class="btn" href="{{url(config('user-activity.admin_panel_path'))}}">Goto Admin Panel</a>
+        <a class="btn" href="{{url(config('user-activity.admin_panel_path'))}}">{{ __("activity::activity.goto_admin")}}</a>
         <a class="btn" href="https://laravelarticle.com/laravel-user-activity" title="Laravel User Activity">Doc</a>
     </div>
 </header>
 <section class="content">
     <div class="top_content">
         <div class="top_content_left">
-            <p class="text_light">Showing @{{response.from}} to @{{response.to}} of @{{response.total}} records</p>
+            <p class="text_light">{{ __("activity::activity.Showing") }} @{{response.from}} {{ __("activity::activity.to")}}  @{{response.to}} {{ __("activity::activity.of")}} @{{response.total}} {{ __("activity::activity.records")}}</p>
         </div>
 
         <div class="top_content_right">
             <div class="filter_item full_width_param user_list_box">
-                <label>USER</label>
+                <label>{{ \Illuminate\Support\Str::upper(__("activity::activity.User")) }}</label>
                 <input type="text"
                        ng-model="filter.user_id"
                        ng-model-options="{debounce:500}"
@@ -446,7 +446,7 @@
 
             </div>
             <div class="filter_item">
-                <label>LOG TYPE</label>
+                <label>{{ \Illuminate\Support\Str::upper(__("activity::activity.log_type")) }}</label>
 
                 <select ng-model="filter.log_type">
                     @foreach(['create','edit','delete','login','lockout'] as $type)
@@ -455,7 +455,7 @@
                 </select>
             </div>
             <div class="filter_item">
-                <label>TABLE</label>
+                <label>{{ \Illuminate\Support\Str::upper(__("activity::activity.table")) }}</label>
                 <select ng-model="filter.table">
                     @foreach($tables as $table)
                         <option value="{{ $table}}">{{ $table}}</option>
@@ -463,19 +463,19 @@
                 </select>
             </div>
             <div class="filter_item">
-                <label>FROM DATE</label>
+                <label>{{ \Illuminate\Support\Str::upper(__("activity::activity.from_date")) }}</label>
                 <date-input ng-model="filter.from_date"></date-input>
             </div>
             <div class="filter_item">
-                <label>TO DATE</label>
+                <label>{{ \Illuminate\Support\Str::upper(__("activity::activity.to_date")) }}</label>
                 <date-input ng-model="filter.to_date"></date-input>
             </div>
             <div class="filter_item" style="justify-content: flex-end;">
-                <button class="btn_reset" ng-show="activeFilter" ng-click="resetParam()">RESET</button>
+                <button class="btn_reset" ng-show="activeFilter" ng-click="resetParam()">{{ \Illuminate\Support\Str::upper(__("activity::activity.reset")) }}</button>
             </div>
             <div class="filter_item" style="justify-content: flex-end;">
                 <button class="btn_filter" ng-class="{btn_filter_active : activeFilter == true}"
-                        ng-click="filterData(filter)">FILTER
+                        ng-click="filterData(filter)">{{ \Illuminate\Support\Str::upper(__("activity::activity.filter")) }}
                 </button>
             </div>
         </div>
@@ -493,11 +493,11 @@
             <table>
                 <thead>
                 <tr>
-                    <td width="30">ID</td>
-                    <td width="260">DATE</td>
-                    <td width="170">LOG TYPE</td>
-                    <td>DONE BY</td>
-                    <td class="text_right" style="padding-right: 10px;">ACTION</td>
+                    <td width="30">{{ \Illuminate\Support\Str::upper(__("activity::activity.id")) }}</td>
+                    <td width="260">{{ \Illuminate\Support\Str::upper(__("activity::activity.date")) }}</td>
+                    <td width="170">{{ \Illuminate\Support\Str::upper(__("activity::activity.log_type")) }}</td>
+                    <td>{{ \Illuminate\Support\Str::upper(__("activity::activity.done_by")) }}</td>
+                    <td class="text_right" style="padding-right: 10px;">{{ \Illuminate\Support\Str::upper(__("activity::activity.action")) }}</td>
                 </tr>
                 </thead>
 
@@ -525,7 +525,7 @@
                         <span class="text_light">@{{ log.user.email }}</span>
                     </td>
                     <td class="action_column text_right">
-                        <button class="btn_show" ng-click="showPopup(log)">SHOW</button>
+                        <button class="btn_show" ng-click="showPopup(log)">{{ \Illuminate\Support\Str::upper(__("activity::activity.show")) }}</button>
                     </td>
                 </tr>
             </table>
@@ -548,8 +548,8 @@
     <footer>
         <div></div>
         <div class="footer_right">
-          <span class="text_light">Delete data older than {{ config('user-activity.delete_limit') }} days</span>
-            <button class="btn" ng-click="deleteLog()">DELETE</button>
+          <span class="text_light"> {{ __("activity::activity.delete_older") }} {{ config('user-activity.delete_limit') }} {{ __("activity::activity.days") }}</span>
+            <button class="btn" ng-click="deleteLog()">{{  \Illuminate\Support\Str::upper(__("activity::activity.delete")) }}</button>
         </div>
     </footer>
 
