@@ -78,9 +78,16 @@ class ActivityController extends Controller
         ]);
 
         $user = request('user');
-        return $this->userInstance::select('id', 'name', 'email')
-            ->where('name', 'like', '%' . $user . '%')
-            ->orWhere('id', $user)
+        return $this->userInstance::select(
+            config("user-activity.user_params.user_id"),
+            config("user-activity.user_params.user_name"),
+            config("user-activity.user_params.user_email"),
+            config("user-activity.user_params.user_id") . ' as id',
+            config("user-activity.user_params.user_name") . ' as name',
+            config("user-activity.user_params.user_email") . ' as email'
+        )
+            ->where(config("user-activity.user_params.user_name"), 'like', '%' . $user . '%')
+            ->orWhere(config("user-activity.user_params.user_id"), $user)
             ->limit(10)->get();
     }
 
